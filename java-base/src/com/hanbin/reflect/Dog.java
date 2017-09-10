@@ -9,6 +9,10 @@ public class Dog extends Animal implements CommonInterface {
 		System.out.println("ÍôÍô");
 	}
 
+	public static void run() {
+		System.out.println("ÎÒÄÜÅÜ");
+	}
+
 	public Dog() {
 		super();
 	}

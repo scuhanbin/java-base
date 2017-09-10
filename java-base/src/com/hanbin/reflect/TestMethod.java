@@ -80,5 +80,9 @@ public class TestMethod {
 		Method sleep = clazz.getDeclaredMethod("sleep");
 		sleep.setAccessible(true);
 		sleep.invoke(dog);
+
+		// 静态方法执行直接用Class实例
+		Method run = clazz.getDeclaredMethod("run");
+		run.invoke(Dog.class);
 	}
 }
