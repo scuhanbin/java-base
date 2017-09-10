@@ -9,22 +9,6 @@ public class Dog extends Animal implements CommonInterface {
 		System.out.println("汪汪");
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public Dog() {
 		super();
 	}
@@ -41,6 +25,17 @@ public class Dog extends Animal implements CommonInterface {
 	}
 
 	private void sleep() {
-		System.out.println("要睡觉了");
+		System.out.println(name + "要睡觉了");
 	}
+
+	@Override
+	public void breath(int intevalTime) throws Exception {
+		super.breath(intevalTime);
+	}
+
+	@Override
+	public String toString() {
+		return "Dog [name=" + name + ", age=" + age + "]";
+	}
+
 }
