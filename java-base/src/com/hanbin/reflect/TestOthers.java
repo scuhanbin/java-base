@@ -28,9 +28,11 @@ public class TestOthers {
 
 		System.out.println();
 
+		// 获取类所在的包
 		Package package1 = clazz.getPackage();
 		System.out.println("包：" + package1.getName());
 
+		// 获取类的runtime生命周期的注解
 		Annotation[] annotations = clazz.getAnnotations();
 		for (Annotation annotation : annotations) {
 			System.out.println(annotation);
