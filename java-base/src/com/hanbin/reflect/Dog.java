@@ -1,5 +1,6 @@
 package com.hanbin.reflect;
 
+@MyAnnotation
 public class Dog extends Animal implements CommonInterface {
 	public String name;
 	private int age;
@@ -32,6 +33,7 @@ public class Dog extends Animal implements CommonInterface {
 		System.out.println(name + "ÒªË¯¾õÁË");
 	}
 
+	@MyAnnotation(value = "haha")
 	@Override
 	public void breath(int intevalTime) throws Exception {
 		super.breath(intevalTime);

@@ -38,11 +38,14 @@ public class TestMethod {
 	public void testInformationOfMethod() throws Exception {
 		Method declaredMethod = clazz.getDeclaredMethod("breath", int.class);
 
+		// 只有生命周期为runtime的注解才能获取，override不能获取
 		Annotation[] annotations = declaredMethod.getAnnotations();
 		System.out.print("注解：");
 		for (Annotation annotation : annotations) {
-			System.out.print(annotation.getClass().getName() + " ");
+			System.out.print(annotation);
 		}
+
+		System.out.println();
 
 		int modifiers = declaredMethod.getModifiers();
 		System.out.println("权限访问修饰符：" + Modifier.toString(modifiers));
