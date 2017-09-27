@@ -16,7 +16,7 @@ public class TestField {
 
 	@Test
 	public void testGetFields() throws Exception {
-		// getFields()»ñÈ¡ÔËĞĞÊ±ÀàºÍ¸¸ÀàÖĞpublicÊôĞÔ
+		// getFields()è·å–è¿è¡Œæ—¶ç±»å’Œçˆ¶ç±»ä¸­publicå±æ€§
 		Field[] fields = clazz.getFields();
 		for (Field field : fields) {
 			System.out.print(field.getName() + " ");
@@ -24,7 +24,7 @@ public class TestField {
 
 		System.out.println();
 
-		// getDeclaredFields()»ñÈ¡ÔËĞĞÊ±ÀàÖĞÉùÃ÷µÄËùÓĞÊôĞÔ
+		// getDeclaredFields()è·å–è¿è¡Œæ—¶ç±»ä¸­å£°æ˜çš„æ‰€æœ‰å±æ€§
 		Field[] declaredFields = clazz.getDeclaredFields();
 		for (Field field : declaredFields) {
 			System.out.print(field.getName() + " ");
@@ -32,35 +32,35 @@ public class TestField {
 
 		System.out.println();
 
-		// »ñÈ¡Ö¸¶¨µÄÊôĞÔ
+		// è·å–æŒ‡å®šçš„å±æ€§
 		Field declaredField = clazz.getDeclaredField("age");
 		System.out.println(declaredField.getName());
 	}
 
-	// ²âÊÔ»ñÈ¡ÊôĞÔÏà¹ØµÄĞÅÏ¢:·ÃÎÊÈ¨ÏŞĞŞÊÎ·û¡¢ÀàĞÍ¡¢Ãû³Æ
+	// æµ‹è¯•è·å–å±æ€§ç›¸å…³çš„ä¿¡æ¯:è®¿é—®æƒé™ä¿®é¥°ç¬¦ã€ç±»å‹ã€åç§°
 	@Test
 	public void testInfomationOfField() throws Exception {
 		Field age = clazz.getDeclaredField("age");
 
 		int modifiers = age.getModifiers();
-		System.out.println("·ÃÎÊÈ¨ÏŞĞŞÊÎ·û£º" + Modifier.toString(modifiers));
+		System.out.println("è®¿é—®æƒé™ä¿®é¥°ç¬¦ï¼š" + Modifier.toString(modifiers));
 
 		Class type = age.getType();
-		System.out.println("ÀàĞÍÎª£º" + type.getName());
+		System.out.println("ç±»å‹ä¸ºï¼š" + type.getName());
 
-		System.out.println("ÊôĞÔÃûÎª£º" + age.getName());
+		System.out.println("å±æ€§åä¸ºï¼š" + age.getName());
 	}
 
-	// Í¨¹ı·´Éä¸øÊôĞÔ¸³Öµ£º¹«ÓĞ¡¢Ë½ÓĞ
+	// é€šè¿‡åå°„ç»™å±æ€§èµ‹å€¼ï¼šå…¬æœ‰ã€ç§æœ‰
 	@Test
 	public void testUseField() throws Exception {
 		Dog dog = new Dog();
 		Field name = clazz.getDeclaredField("name");
-		name.set(dog, "Íú²Æ");
+		name.set(dog, "æ—ºè´¢");
 
 		System.out.println(dog);
 
-		// ¸øË½ÓĞÊôĞÔ¸³ÖµÇ°ÒªÉèÖÃÊôĞÔµÄaccessibleÊôĞÔÎªtrue£¬·ñÔò»á±¨IllegalAccessExceptionÒì³£
+		// ç»™ç§æœ‰å±æ€§èµ‹å€¼å‰è¦è®¾ç½®å±æ€§çš„accessibleå±æ€§ä¸ºtrueï¼Œå¦åˆ™ä¼šæŠ¥IllegalAccessExceptionå¼‚å¸¸
 		Field age = clazz.getDeclaredField("age");
 		age.setAccessible(true);
 		age.set(dog, 3);

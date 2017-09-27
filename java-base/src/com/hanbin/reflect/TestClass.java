@@ -4,22 +4,22 @@ import org.junit.Test;
 
 public class TestClass {
 
-	// ²âÊÔ»ñÈ¡ClassÀàµÄÊµÀı
+	// æµ‹è¯•è·å–Classç±»çš„å®ä¾‹
 	@Test
 	public void testGetClass() throws ClassNotFoundException {
-		// 1¡¢Í¨¹ıÔËĞĞÊ±Àà±¾ÉíµÄ.classÊôĞÔ»ñÈ¡
+		// 1ã€é€šè¿‡è¿è¡Œæ—¶ç±»æœ¬èº«çš„.classå±æ€§è·å–
 		Class clazz = Dog.class;
 		System.out.println(clazz);
 
-		// 2¡¢Í¨¹ıÔËĞĞÊ±ÀàµÄ¶ÔÏó»ñÈ¡
+		// 2ã€é€šè¿‡è¿è¡Œæ—¶ç±»çš„å¯¹è±¡è·å–
 		Class clazz1 = new Dog().getClass();
 		System.out.println(clazz1);
 
-		// 3¡¢Í¨¹ıClassµÄ¾²Ì¬·½·¨forName()»ñÈ¡
+		// 3ã€é€šè¿‡Classçš„é™æ€æ–¹æ³•forName()è·å–
 		Class clazz2 = Class.forName("com.hanbin.reflect.Dog");
 		System.out.println(clazz2);
 
-		// Í¨¹ıÀà¼ÓÔØÆ÷»ñÈ¡
+		// 4ã€é€šè¿‡ç±»åŠ è½½å™¨è·å–
 		ClassLoader classLoader = ClassLoader.getSystemClassLoader();
 		Class clazz3 = classLoader.loadClass("com.hanbin.reflect.Dog");
 		System.out.println(clazz3);

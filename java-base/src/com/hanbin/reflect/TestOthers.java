@@ -15,24 +15,24 @@ public class TestOthers {
 
 	@Test
 	public void test() {
-		// »ñÈ¡¸¸Àà
+		// è·å–çˆ¶ç±»
 		Class<? super Dog> superclass = clazz.getSuperclass();
-		System.out.println("¸¸Àà£º" + superclass.getName());
+		System.out.println("çˆ¶ç±»:" + superclass.getName());
 
-		// »ñÈ¡ÊµÏÖµÄ½Ó¿Ú
+		// è·å–å®ç°çš„æ¥å£
 		Class<?>[] interfaces = clazz.getInterfaces();
-		System.out.println("½Ó¿Ú£º");
+		System.out.println("æ¥å£:");
 		for (Class<?> iface : interfaces) {
 			System.out.print(iface.getName() + " ");
 		}
 
 		System.out.println();
 
-		// »ñÈ¡ÀàËùÔÚµÄ°ü
+		// å–ç±»æ‰€åœ¨çš„åŒ…
 		Package package1 = clazz.getPackage();
-		System.out.println("°ü£º" + package1.getName());
+		System.out.println("åŒ…ï¼š" + package1.getName());
 
-		// »ñÈ¡ÀàµÄruntimeÉúÃüÖÜÆÚµÄ×¢½â
+		// è·å–ç±»çš„runtimeç”Ÿå‘½å‘¨æœŸçš„æ³¨è§£
 		Annotation[] annotations = clazz.getAnnotations();
 		for (Annotation annotation : annotations) {
 			System.out.println(annotation);

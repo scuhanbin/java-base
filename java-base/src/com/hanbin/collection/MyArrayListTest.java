@@ -20,5 +20,7 @@ public class MyArrayListTest {
 		System.out.println(list.contains("bbb"));// true
 		System.out.println(list.indexOf("1231"));// 0
 		System.out.println(list.lastIndexOf("1231"));// 6
+
+		System.out.println(list.toArray());
 	}
 }

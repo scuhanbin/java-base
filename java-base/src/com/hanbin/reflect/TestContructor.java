@@ -16,7 +16,7 @@ public class TestContructor {
 
 	@Test
 	public void testGetContructors() {
-		// getConstructors()»ñÈ¡publicµÄ¹¹Ôìº¯Êı
+		// getConstructors()è·å–publicçš„æ„é€ å‡½æ•°
 		Constructor[] constructors = clazz.getConstructors();
 		for (Constructor constructor : constructors) {
 			System.out.println(constructor);
@@ -24,7 +24,7 @@ public class TestContructor {
 
 		System.out.println();
 
-		// getDeclaredConstructors()»ñÈ¡ËùÓĞ¹¹Ôìº¯Êı
+		// getDeclaredConstructors()è·å–æ‰€æœ‰æ„é€ å‡½æ•°
 		Constructor[] declaredConstructors = clazz.getDeclaredConstructors();
 		for (Constructor constructor : declaredConstructors) {
 			System.out.println(constructor);
@@ -33,30 +33,30 @@ public class TestContructor {
 
 	@Test
 	public void testInformationOfConstructor() throws Exception {
-		// »ñÈ¡Ö¸¶¨µÄ¹¹Ôìº¯Êı
+		// è·å–æŒ‡å®šçš„æ„é€ å‡½æ•°
 		Constructor<Dog> declaredConstructor = clazz.getDeclaredConstructor(String.class, int.class);
 		int modifiers = declaredConstructor.getModifiers();
 
-		System.out.println("¹¹Ôì·½·¨µÄ·ÃÎÊÈ¨ÏŞĞŞÊÎ·ûÎª£º" + Modifier.toString(modifiers));
+		System.out.println("æ„é€ æ–¹æ³•çš„è®¿é—®æƒé™ä¿®é¥°ç¬¦ä¸ºï¼š" + Modifier.toString(modifiers));
 
 		Class<?>[] parameterTypes = declaredConstructor.getParameterTypes();
-		System.out.println("¹¹Ôì·½·¨µÄ²ÎÊıÀàĞÍÎª£º");
+		System.out.println("æ„é€ æ–¹æ³•çš„å‚æ•°ç±»å‹ä¸ºï¼š");
 		for (Class<?> class1 : parameterTypes) {
 			System.out.print(class1.getName() + " ");
 		}
 	}
 
-	// Í¨¹ı·´Éä»ñÈ¡µÄ¹¹Ôìº¯Êı´´½¨ÀàµÄ¶ÔÏó
+	// é€šè¿‡åå°„è·å–çš„æ„é€ å‡½æ•°åˆ›å»ºç±»çš„å¯¹è±¡
 	@Test
 	public void testUseContructor() throws Exception {
 		Constructor<Dog> declaredConstructor = clazz.getDeclaredConstructor(String.class, int.class);
-		Dog dog = declaredConstructor.newInstance("Íú²Æ", 3);
+		Dog dog = declaredConstructor.newInstance("ï¿½ï¿½ï¿½ï¿½", 3);
 		System.out.println(dog);
 
-		// Ë½ÓĞ¹¹Ôìº¯Êı´´½¨¶ÔÏóÊ±ĞèÒªÏÈÉèÖÃ¹¹Ôìº¯ÊıµÄaccessibleÊôĞÔÎªtrue£¬·ñÔò»á±¨IllegalAccessExceptionÒì³£
+		// ç§æœ‰æ„é€ å‡½æ•°åˆ›å»ºå¯¹è±¡æ—¶éœ€è¦å…ˆè®¾ç½®æ„é€ å‡½æ•°çš„accessibleå±æ€§ä¸ºtrueï¼Œå¦åˆ™ä¼šæŠ¥IllegalAccessExceptionå¼‚å¸¸
 		Constructor<Dog> declaredConstructor2 = clazz.getDeclaredConstructor(String.class);
 		declaredConstructor2.setAccessible(true);
-		Dog dog2 = declaredConstructor2.newInstance("Ğ¡ºÚ");
+		Dog dog2 = declaredConstructor2.newInstance("Ğ¡ï¿½ï¿½");
 		System.out.println(dog2);
 	}
 }

@@ -3,7 +3,7 @@ package com.hanbin.collection;
 import java.util.Arrays;
 
 /**
- * ÊÖÐ´ArrayList
+ * æ‰‹å†™ArrayList
  */
 public class MyArrayList {
 	private Object[] values;

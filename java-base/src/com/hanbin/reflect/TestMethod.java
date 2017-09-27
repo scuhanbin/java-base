@@ -18,7 +18,7 @@ public class TestMethod {
 
 	@Test
 	public void testGetMethods() {
-		// »ñÈ¡ÔËĞĞÊ±Àà¼°Æä¸¸ÀàµÄpublic·½·¨
+		// è·å–è¿è¡Œæ—¶ç±»åŠå…¶çˆ¶ç±»çš„publicæ–¹æ³•
 		Method[] methods = clazz.getMethods();
 		for (Method method : methods) {
 			System.out.println(method);
@@ -26,21 +26,21 @@ public class TestMethod {
 
 		System.out.println();
 
-		// »ñÈ¡ÔËĞĞÊ±ÀàÄÚ²¿ÉùÃ÷µÄËùÓĞ·½·¨
+		// è·å–è¿è¡Œæ—¶ç±»å†…éƒ¨å£°æ˜çš„æ‰€æœ‰æ–¹æ³•
 		Method[] declaredMethods = clazz.getDeclaredMethods();
 		for (Method method : declaredMethods) {
 			System.out.println(method);
 		}
 	}
 
-	// ²âÊÔ»ñÈ¡·½·¨µÄĞÅÏ¢£º×¢½â¡¢È¨ÏŞ·ÃÎÊĞŞÊÎ·û¡¢·µ»ØÖµÀàĞÍ¡¢Ãû³Æ¡¢ĞÎ²ÎÁĞ±í¡¢Òì³£
+	// æµ‹è¯•è·å–æ–¹æ³•çš„ä¿¡æ¯ï¼šæ³¨è§£ã€æƒé™è®¿é—®ä¿®é¥°ç¬¦ã€è¿”å›å€¼ç±»å‹ã€åç§°ã€å½¢å‚åˆ—è¡¨ã€å¼‚å¸¸
 	@Test
 	public void testInformationOfMethod() throws Exception {
 		Method declaredMethod = clazz.getDeclaredMethod("breath", int.class);
 
-		// Ö»ÓĞÉúÃüÖÜÆÚÎªruntimeµÄ×¢½â²ÅÄÜ»ñÈ¡£¬override²»ÄÜ»ñÈ¡
+		// åªæœ‰ç”Ÿå‘½å‘¨æœŸä¸ºruntimeçš„æ³¨è§£æ‰èƒ½è·å–ï¼Œoverrideä¸èƒ½è·å–
 		Annotation[] annotations = declaredMethod.getAnnotations();
-		System.out.print("×¢½â£º");
+		System.out.print("æ³¨è§£ï¼š");
 		for (Annotation annotation : annotations) {
 			System.out.print(annotation);
 		}
@@ -48,43 +48,43 @@ public class TestMethod {
 		System.out.println();
 
 		int modifiers = declaredMethod.getModifiers();
-		System.out.println("È¨ÏŞ·ÃÎÊĞŞÊÎ·û£º" + Modifier.toString(modifiers));
+		System.out.println("æƒé™è®¿é—®ä¿®é¥°ç¬¦ï¼š" + Modifier.toString(modifiers));
 
 		Class<?> returnType = declaredMethod.getReturnType();
-		System.out.println("·µ»ØÖµÀàĞÍ£º" + returnType.getName());
+		System.out.println("è¿”å›å€¼ç±»å‹ï¼š" + returnType.getName());
 
-		System.out.println("·½·¨Ãû£º" + declaredMethod.getName());
+		System.out.println("æ–¹æ³•åï¼š" + declaredMethod.getName());
 
 		Class<?>[] parameterTypes = declaredMethod.getParameterTypes();
-		System.out.print("ĞÎ²ÎÁĞ±í£º");
+		System.out.print("å½¢å‚åˆ—è¡¨ï¼š");
 		for (Class<?> parameterType : parameterTypes) {
 			System.out.print(parameterType.getName() + " ");
 		}
 
 		Class<?>[] exceptionTypes = declaredMethod.getExceptionTypes();
 		System.out.println();
-		System.out.println("Òì³££º");
+		System.out.println("å¼‚å¸¸ï¼š");
 		for (Class<?> exceptionType : exceptionTypes) {
 			System.out.print(exceptionType.getName() + " ");
 		}
 	}
 
-	// ²âÊÔÖ´ĞĞ·½·¨
+	// æµ‹è¯•æ‰§è¡Œæ–¹æ³•
 	@Test
 	public void testUseMethod() throws Exception {
 		Constructor<Dog> declaredConstructor = clazz.getDeclaredConstructor(String.class, int.class);
-		Dog dog = declaredConstructor.newInstance("Íú²Æ", 3);
+		Dog dog = declaredConstructor.newInstance("ï¿½ï¿½ï¿½ï¿½", 3);
 
-		// ¹«ÓĞ·½·¨Ö±½ÓÖ´ĞĞ
+		// å…¬æœ‰æ–¹æ³•ç›´æ¥æ‰§è¡Œ
 		Method say = clazz.getDeclaredMethod("say");
 		say.invoke(dog);
 
-		// Ë½ÓĞ·½·¨Ö´ĞĞÇ°ÒªÉèÖÃaccessibleÊôĞÔÎªtrue£¬·ñÔò»á±¨IllegalAccessExceptionÒì³£
+		// ç§æœ‰æ–¹æ³•æ‰§è¡Œå‰è¦è®¾ç½®accessibleå±æ€§ä¸ºtrueï¼Œå¦åˆ™ä¼šæŠ¥IllegalAccessExceptionå¼‚å¸¸
 		Method sleep = clazz.getDeclaredMethod("sleep");
 		sleep.setAccessible(true);
 		sleep.invoke(dog);
 
-		// ¾²Ì¬·½·¨Ö´ĞĞÖ±½ÓÓÃClassÊµÀı
+		// é™æ€æ–¹æ³•æ‰§è¡Œç›´æ¥ç”¨Classå®ä¾‹
 		Method run = clazz.getDeclaredMethod("run");
 		run.invoke(Dog.class);
 	}
