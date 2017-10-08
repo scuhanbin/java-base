@@ -92,4 +92,13 @@ public class MyArrayList {
 	public Object[] toArray() {
 		return Arrays.copyOf(values, size);
 	}
+
+	public Object remove(int index) {
+		Object removeValue = get(index);
+		int count = size - index - 1;
+		System.arraycopy(values, index + 1, values, index, count);
+
+		values[--size] = null;
+		return removeValue;
+	}
 }

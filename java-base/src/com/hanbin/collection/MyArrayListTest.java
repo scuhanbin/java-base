@@ -22,5 +22,10 @@ public class MyArrayListTest {
 		System.out.println(list.lastIndexOf("1231"));// 6
 
 		System.out.println(list.toArray());
+
+		Object removeObject = list.remove(4);
+		System.out.println(removeObject);
+
+		System.out.println(list.size());
 	}
 }
