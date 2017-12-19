@@ -2,18 +2,31 @@ package com.hanbin.thread;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
+/**
+ * 
+ * @author scu_h
+ *
+ */
 public class SemaphoreTest {
 	public static void main(String[] args) {
 
 		Semaphore semaphore = new Semaphore(3);
 
-		new Thread(new MyThread1("小丽", semaphore)).start();
-		new Thread(new MyThread1("小米", semaphore)).start();
-		new Thread(new MyThread1("小华", semaphore)).start();
-		new Thread(new MyThread1("小明", semaphore)).start();
-		new Thread(new MyThread1("小猪", semaphore)).start();
+		ThreadPoolExecutor threadPool = new ThreadPoolExecutor(5, 100, 0, TimeUnit.SECONDS,
+				new ArrayBlockingQueue<>(5));
+
+		threadPool.execute(new MyThread1("小丽", semaphore));
+		threadPool.execute(new MyThread1("小米", semaphore));
+		threadPool.execute(new MyThread1("小华", semaphore));
+		threadPool.execute(new MyThread1("小明", semaphore));
+		threadPool.execute(new MyThread1("小猪", semaphore));
+
+		threadPool.shutdown();
 	}
 }
 

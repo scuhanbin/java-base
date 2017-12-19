@@ -2,21 +2,32 @@ package com.hanbin.thread;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 小米、小明、小华、小猪、小丽约好一起出去玩，在天安门广场集合，因此他们需要所有人到了才能出发
+ * 
+ * @author scu_h
+ *
  */
 public class CyclicBarrierTest {
 	public static void main(String[] args) {
 		CyclicBarrier cyclicBarrier = new CyclicBarrier(5, () -> System.out.println("都到齐了，出发啦"));
 
-		new Thread(new MyThread2("小丽", cyclicBarrier)).start();
-		new Thread(new MyThread2("小米", cyclicBarrier)).start();
-		new Thread(new MyThread2("小华", cyclicBarrier)).start();
-		new Thread(new MyThread2("小明", cyclicBarrier)).start();
-		new Thread(new MyThread2("小猪", cyclicBarrier)).start();
+		ThreadPoolExecutor threadPool = new ThreadPoolExecutor(5, 100, 0, TimeUnit.SECONDS,
+				new ArrayBlockingQueue<>(5));
+
+		threadPool.execute(new MyThread2("小丽", cyclicBarrier));
+		threadPool.execute(new MyThread2("小米", cyclicBarrier));
+		threadPool.execute(new MyThread2("小华", cyclicBarrier));
+		threadPool.execute(new MyThread2("小明", cyclicBarrier));
+		threadPool.execute(new MyThread2("小猪", cyclicBarrier));
+
+		threadPool.shutdown();
 	}
 }
 
